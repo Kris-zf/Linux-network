@@ -9,13 +9,14 @@
 #pragma once
 
 #include <arpa/inet.h>
+#include <string>
 #include <string_view>
 
 class NetAddress4 {
 public:
-  std::string_view Ip() { return ""; }
+  std::string_view Ip() { return ip_; }
 
-  uint16_t Port() { return 0; }
+  uint16_t Port() { return port_; }
 
   NetAddress4(std::string_view ip, uint16_t port);
 
@@ -25,5 +26,7 @@ public:
   }
 
 private:
+  std::string ip_;
+  uint16_t port_;
   struct sockaddr_in address_;
 };

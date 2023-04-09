@@ -8,7 +8,7 @@
 
 #include "net_address4.h"
 
-NetAddress4::NetAddress4(std::string_view ip, uint16_t port) {
+NetAddress4::NetAddress4(std::string_view ip, uint16_t port) : ip_(ip), port_(port) {
   if (inet_pton(AF_INET, ip.data(), &address_.sin_addr) <= 0 ) {
     // 出错返回-1，非有效表达式返回0，成功返回1
     std::exit(EXIT_FAILURE);
