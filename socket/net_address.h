@@ -8,17 +8,7 @@
 
 #pragma once
 
-class NetAddress {
-public:
-  void GetLocalHost() {}
+#include "net_address4.h"
+#include "net_address6.h"
 
-  std::string_view Ip() {return "";}
-
-  uint16_t Port() {
-    return  0;
-  }
-
-private:
-  bool is_ipv6_ = false;
-
-};
+template <typename T> class NetAddress : public T {};
