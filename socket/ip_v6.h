@@ -9,20 +9,16 @@
 #pragma once
 
 #include <arpa/inet.h>
-#include <string_view>
 #include <string>
+#include <string_view>
 
-class NetAddress6 {
+class IPv6 {
 public:
-  std::string_view Ip() {
-    return ip_;
-  }
+  std::string_view Ip() { return ip_; }
 
-  uint16_t Port() {
-    return port_;
-  }
+  uint16_t Port() const { return port_; }
 
-  NetAddress6(std::string_view ip, uint16_t port);
+  IPv6(std::string_view ip, uint16_t port);
 
 private:
   std::string ip_;

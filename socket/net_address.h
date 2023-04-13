@@ -8,7 +8,16 @@
 
 #pragma once
 
-#include "net_address4.h"
-#include "net_address6.h"
+#include "ip_v4.h"
+#include "ip_v6.h"
+
+namespace net {
 
 template <typename T> class NetAddress : public T {};
+
+using NetAddress4 = NetAddress<IPv4>;
+using NetAddress6 = NetAddress<IPv6>;
+
+void GetLocalHost(){}
+
+}  // namespace net

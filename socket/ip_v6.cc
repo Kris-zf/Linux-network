@@ -6,9 +6,9 @@
 // Description:
 //
 
-#include "net_address6.h"
+#include "ip_v6.h"
 
-NetAddress6::NetAddress6(std::string_view ip, uint16_t port)
+IPv6::IPv6(std::string_view ip, uint16_t port)
     : ip_(ip), port_(port) {
   if (inet_pton(AF_INET6, ip.data(), &address_.sin6_addr) <= 0) {
     std::exit(EXIT_FAILURE);

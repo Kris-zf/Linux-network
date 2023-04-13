@@ -12,13 +12,13 @@
 #include <string>
 #include <string_view>
 
-class NetAddress4 {
+class IPv4 {
 public:
   std::string_view Ip() { return ip_; }
 
-  uint16_t Port() { return port_; }
+  uint16_t Port() const { return port_; }
 
-  NetAddress4(std::string_view ip, uint16_t port);
+  IPv4(std::string_view ip, uint16_t port);
 
   [[nodiscard]] struct sockaddr *ToSocketAddr() const {
     return const_cast<sockaddr *>(
