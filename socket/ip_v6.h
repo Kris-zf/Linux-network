@@ -20,6 +20,14 @@ public:
 
   IPv6(std::string_view ip, uint16_t port);
 
+  const struct sockaddr* ToSocketAddr() const {
+    return reinterpret_cast<const struct sockaddr*>(&address_);
+  }
+
+  struct sockaddr* ToSocketAddr() {
+    return reinterpret_cast<struct sockaddr*>(&address_);
+  }
+
 private:
   std::string ip_;
   uint16_t port_;
